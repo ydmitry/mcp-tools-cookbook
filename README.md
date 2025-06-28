@@ -108,30 +108,6 @@ Add to your `~/.cursor/mcp.json` file:
 }
 ```
 
-## 🧑‍🍳 Creating Your Own Recipes
-
-Want to create your own MCP tool patterns? See [HOW-TO-CONTRIBUTE.md](HOW-TO-CONTRIBUTE.md) for comprehensive guides on recipe creation, pattern development, and troubleshooting.
-
-## 🤝 Contributing
-
-We welcome new MCP tool patterns! See [HOW-TO-CONTRIBUTE.md](HOW-TO-CONTRIBUTE.md) for detailed contribution guidelines and instructions.
-
 ## 📝 License
 
 This cookbook is provided as-is for educational purposes. Check the FastMCP repository for its license terms.
-
-## 🎯 Next Steps
-
-After exploring these patterns:
-
-1. **Mix and match patterns** for your specific use cases
-2. **Create hybrid patterns** combining multiple approaches
-3. **Build production servers** using these patterns as foundations
-4. **Share your own patterns** with the community
-5. **Integrate with your favorite AI tools** and workflows
-
-Happy cooking with MCP! 🚀🍳
-
----
-
-*This cookbook demonstrates the versatility of the Model Context Protocol through practical, reusable patterns. Each pattern is a "recipe" you can adapt for your own AI-powered applications.* 

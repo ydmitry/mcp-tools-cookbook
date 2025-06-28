@@ -14,7 +14,7 @@ async def simple_test():
     print("=" * 40)
     
     # Create client pointing to our server script
-    client = Client("hello_world_server.py")
+    client = Client("mcp_server.py")
     
     try:
         async with client:
@@ -49,9 +49,9 @@ if __name__ == "__main__":
     if success:
         print("\n🎉 FastMCP Hello World example is working perfectly!")
         print("\n📋 What you can do next:")
-        print("   • Run: python hello_world_server.py")
-        print("   • Try: fastmcp run hello_world_server.py")
-        print("   • Modify the tool in hello_world_server.py")
+        print("   • Run: python mcp_server.py")
+        print("   • Try: fastmcp run mcp_server.py")
+        print("   • Modify the tool in mcp_server.py")
         print("   • Connect this server to Claude Desktop or other MCP clients")
     else:
         print("\n❌ Some tests failed. Check the server configuration.")

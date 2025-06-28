@@ -85,9 +85,9 @@ def main():
     if failed == 0:
         print("🎉 All tests passed! Your FastMCP setup is ready.")
         print("\n💡 Next steps:")
-        print("   1. Run: python hello_world_server.py")
+        print("   1. Run: python mcp_server.py")
         print("   2. In another terminal, run: python client_example.py")
-        print("   3. Or use: fastmcp run hello_world_server.py")
+        print("   3. Or use: fastmcp run mcp_server.py")
     else:
         print("⚠️  Some tests failed. Please check your FastMCP installation.")
         print("   Try: pip install -r requirements.txt")

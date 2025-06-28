@@ -15,7 +15,7 @@ async def demo_client():
     """Demonstrate interactions with the Hello World MCP Server."""
     
     # Create client pointing to our server script
-    client = Client("hello_world_server.py")
+    client = Client("mcp_server.py")
     
     print("🔌 Connecting to Hello World MCP Server...")
     
@@ -66,7 +66,7 @@ async def quick_demo():
     print("🚀 Quick Demo - Hello World MCP Client")
     print("=" * 50)
     
-    client = Client("hello_world_server.py")
+    client = Client("mcp_server.py")
     
     async with client:
         # Simple tool call

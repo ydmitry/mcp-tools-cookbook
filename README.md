@@ -68,9 +68,6 @@ pip install -r requirements.txt
 source activate.sh
 ```
 
-
-## 📖 Recipe Examples
-
 ### Using with AI Applications
 
 Connect this cookbook to LLM applications that support MCP:

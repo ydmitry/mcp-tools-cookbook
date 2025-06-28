@@ -2,31 +2,6 @@
 
 A comprehensive collection of Model Context Protocol (MCP) tool patterns and recipes. This cookbook demonstrates various MCP design patterns that you can use as building blocks for your own AI-powered applications.
 
-## 🍳 What's Cooking?
-
-The Model Context Protocol (MCP) is an open standard that enables secure, controlled access for AI applications to local and remote resources. This cookbook provides practical, ready-to-use patterns that demonstrate the full power of MCP through FastMCP, a fast, Pythonic framework for creating MCP servers and clients.
-
-## 📋 Project Structure
-
-```
-mcp-tools-cookbook/
-├── requirements.txt          # Python dependencies
-├── mcp_server.py            # Main MCP server showcasing all patterns
-├── client_example.py        # Interactive client demo
-├── simple_test.py           # Test suite for all patterns
-├── test_setup.py           # Setup verification script
-├── activate.sh             # Virtual environment activation
-├── patterns/               # Pattern implementations
-│   ├── prompt_exposure_tool_pattern.py
-│   ├── clarification_questions_pattern.py
-│   ├── multi_step_tool_pattern.py
-│   ├── react_prompt_exposure_pattern.py
-│   ├── client_tool_orchestration_pattern.py
-│   └── response_driven_tool_navigation_pattern.py
-├── venv/                   # Virtual environment (created after setup)
-└── README.md              # This cookbook guide
-```
-
 ## 🧑‍🍳 Available Recipes (Patterns)
 
 This cookbook demonstrates essential MCP tool patterns:
@@ -53,9 +28,29 @@ This cookbook demonstrates essential MCP tool patterns:
 - **`quantum_mood_analyzer`**, **`rubber_duck_debugger`**, **`coffee_brew_oracle`** - Fun example tools
 - **Use case**: Guide conversation flow through tool response content
 
+## 📸 Patterns in Action
+
+See these MCP tool patterns demonstrated in real AI conversations:
+
+### 🎯 Prompt Exposure Pattern
+![Prompt Exposure Pattern](screenshots/prompt_exposure_tool_pattern.png)
+*The `code_reviewer_prompt` tool exposing a comprehensive, ready-to-use code review template*
+
+### 🤔 Clarification Questions Pattern
+![Clarification Questions Pattern](screenshots/clarification_questions_pattern.png)
+*The `smart_recipe_generator` tool progressively gathering information through targeted questions*
+
+### 🌐 Client Tool Orchestration Pattern
+![Client Tool Orchestration Pattern](screenshots/client_tool_orchestration_pattern.png)
+*The `sequential_web_search` tool orchestrating multiple web searches and processing results*
+
+### 🎲 Response-Driven Navigation Pattern
+![Response-Driven Navigation Pattern](screenshots/response_driven_tool_navigation_pattern.png)
+*The `tool_with_follow_up` tool suggesting next actions, leading to `rubber_duck_debugger` execution*
+
 ## 🚀 Quick Start
 
-### 1. Setup Your Kitchen (Environment)
+### Setup Your Kitchen (Environment)
 
 ```bash
 # Create virtual environment
@@ -73,83 +68,17 @@ pip install -r requirements.txt
 source activate.sh
 ```
 
-### 2. Start Cooking (Run the Server)
-
-You can run the server in several ways:
-
-#### Option A: Direct Python execution
-```bash
-python mcp_server.py
-```
-
-#### Option B: Using FastMCP CLI (recommended)
-```bash
-fastmcp run mcp_server.py
-```
-
-#### Option C: With custom transport (HTTP)
-```bash
-fastmcp run mcp_server.py --transport http --port 8000
-```
-
-### 3. Taste Test (Verify Setup)
-
-First, verify everything is working:
-
-```bash
-python test_setup.py
-```
-
-Then run the comprehensive test:
-
-```bash
-python simple_test.py
-```
-
-### 4. Try the Interactive Demo
-
-Run the example client to see all patterns in action:
-
-```bash
-python client_example.py
-```
 
 ## 📖 Recipe Examples
-
-### Using Pattern Tools Programmatically
-
-```python
-import asyncio
-from fastmcp import Client
-
-async def try_patterns():
-    client = Client("mcp_server.py")
-    
-    async with client:
-        # Try the code reviewer prompt pattern
-        result = await client.call_tool("code_reviewer_prompt")
-        print("Code Review Prompt:", result[0].text)
-        
-        # Try the clarification questions pattern
-        result = await client.call_tool("smart_recipe_generator", 
-                                      {"cuisine_type": "Italian"})
-        print("Recipe Suggestion:", result[0].text)
-        
-        # Try the multi-step pattern
-        workflow_result = await client.call_tool("step1_initialize_workflow", 
-                                               {"workflow_name": "test-workflow"})
-        print("Workflow Started:", workflow_result[0].text)
-
-asyncio.run(try_patterns())
-```
 
 ### Using with AI Applications
 
 Connect this cookbook to LLM applications that support MCP:
 
 1. **Claude Desktop**: Add to your MCP configuration
-2. **Custom LLM apps**: Use the FastMCP client
-3. **Other MCP clients**: Any MCP-compatible client can use these patterns
+2. **Cursor**: Add to your MCP configuration
+3. **Custom LLM apps**: Use the FastMCP client
+4. **Other MCP clients**: Any MCP-compatible client can use these patterns
 
 ### Claude Desktop Configuration Example
 
@@ -158,11 +87,23 @@ Connect this cookbook to LLM applications that support MCP:
   "mcpServers": {
     "mcp-tools-cookbook": {
       "command": "python",
-      "args": ["/path/to/mcp-tools-cookbook/mcp_server.py"],
-      "env": {
-        "PYTHONPATH": "/path/to/mcp-tools-cookbook"
-      }
+      "args": ["path-to-repository/mcp_server.py"]
     }
+  }
+}
+```
+
+### Cursor Configuration Example
+
+Add to your `~/.cursor/mcp.json` file:
+
+```json
+{
+  "mcp-tools-patterns": {
+    "command": "python",
+    "args": [
+      "path-to-repository/mcp_server.py"
+    ]
   }
 }
 ```
@@ -206,41 +147,6 @@ from patterns.your_new_pattern import register_your_pattern_tools
 # Register your pattern
 register_your_pattern_tools(mcp)
 ```
-
-## 🌐 Advanced Cooking Techniques
-
-### HTTP Server Mode
-
-Run as an HTTP server for remote access:
-
-```bash
-fastmcp run mcp_server.py --transport http --port 8000
-```
-
-### Environment Configuration
-
-Create a `.env` file for environment-based configuration:
-
-```env
-MCP_SERVER_NAME=MCP Tools Cookbook
-MCP_LOG_LEVEL=INFO
-```
-
-## 📚 Learning Resources
-
-### FastMCP Documentation
-- [Official FastMCP Repository](https://github.com/jlowin/fastmcp)
-- [FastMCP Documentation](https://github.com/jlowin/fastmcp/tree/main/docs)
-
-### MCP Specification
-- [Model Context Protocol](https://modelcontextprotocol.io/)
-- [MCP Specification](https://spec.modelcontextprotocol.io/)
-- [MCP Servers Repository](https://github.com/modelcontextprotocol/servers)
-
-### Key Concepts
-- **Tools**: Functions that can be called by LLMs
-- **Patterns**: Reusable design approaches for different use cases
-- **Transports**: Communication methods (stdio, http, etc.)
 
 ## 🛠️ Troubleshooting
 
